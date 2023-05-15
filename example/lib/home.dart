@@ -23,6 +23,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     Widget _buildBody() {
+      final ThemeData theme = Theme.of(context);
       return Column(
         children: <Widget>[
           Container(
@@ -319,16 +320,16 @@ class _HomeState extends State<Home> {
                       context: context,
                       theme: ThemeData(
                         primaryColor: Colors.red[400],
-                        accentColor: Colors.green[800],
+                        colorScheme: theme.colorScheme.copyWith(
+                          secondary: Colors.green[800],
+                          onSecondary: Colors.green[200]
+                          ),
                         dialogBackgroundColor: Colors.purple[50],
                         textTheme: TextTheme(
-                          bodyText2: TextStyle(color: Colors.red),
-                          caption: TextStyle(color: Colors.blue),
+                          bodyMedium: TextStyle(color: Colors.red),
+                          bodySmall: TextStyle(color: Colors.blue),
                         ),
                         disabledColor: Colors.orange,
-                        accentTextTheme: TextTheme(
-                          bodyText1: TextStyle(color: Colors.green[200]),
-                        ),
                       ),
                     );
                     if (newDateTime != null) {
